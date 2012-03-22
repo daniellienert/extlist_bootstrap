@@ -1,0 +1,12 @@
+[submodule "typo3conf/ext/pt_extbase"]
+	path = typo3conf/ext/pt_extbase
+	url = git@github.com:michaelknoll/pt_extbase.git
+[submodule "typo3conf/ext/pt_extlist"]
+	path = typo3conf/ext/pt_extlist
+	url = git@github.com:daniellienert/pt_extlist.git
+[submodule "typo3conf/ext/dl_dbfilelist"]
+	path = typo3conf/ext/dl_dbfilelist
+	url = git@github.com:daniellienert/dl_dbfilelist.git
+[submodule "typo3conf/ext/dl_dropboxsync"]
+	path = typo3conf/ext/dl_dropboxsync
+	url = git@github.com:daniellienert/dl_dropboxsync.git
