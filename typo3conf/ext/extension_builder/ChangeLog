@@ -1,0 +1,87 @@
+[BUGFIX] Default dependencies should have no upper limitation
+[BUGFIX] Changed fixtures for compatibility test
+[TASK] Add a field for dependencies
+Resolves #32944
+[TASK] Make versioning configurable
+You can disable support for versioning now in the extension properties
+Resolves #32945
+[TASK] Replace static functions in class builder
+This should enable the extending of the class builder service
+Resolves #33266
+[TASK] Add more property types for input fields
+We have now "file reference", "folder", "time", "time w seconds" and "richtext" as new property types
+[BUGFIX] Only ZeroToMany relations need a foreignKeyName
+[TASK] Enable relations to external models
+[BUGFIX] Added mandatory whitespace in method regex
+Resolves #33923
+[TASK] Renaming wrong keys for extension managers categories
+[BUGFIX] Pluralize view helper fails in certain cases
+Resolves #30869
+[BUGFIX] Enable multiple relations to same foreign class
+Resolves #33110
+[BUGFIX] Generate valid TypoScript for multiple subclasses
+Insert newlines on generation of static TypoScript for multiple subclasses inherited from one parent class
+Resolves #33818
+[BUGFIX] Switched back to general naming of type field
+Including the extension key in the type field name caused problems when extending extended classes
+[BUGFIX] Test for type array before applying foreach
+Resolves #30702
+[BUGFIX] Correcting license annotation
+Resolves #32166
+[TASK] Replaced another deprecated function
+[BUGFIX] Code Generator removed too many empty lines
+[BUGFIX] Force correct sorting of default actions
+with YUI/inputEx library the only way to force the correct sorting is adding prefixes to the action names
+Resolves #33683
+[BUGFIX] Type field declaration was missing in certain cases
+When extending a foreign class without TCA type field definition, the type field definition was not rendered
+[TASK] Replaced deprecated function calls
+[TASK] Manual merge of mapping branch
+Gerrit does not allow to commit merges.
+This commit adds many new features:
+map a model to an existing table
+extend fe_users and fe_groups
+extend other extbase models
+Still experimental, feedback needed!
+Resolves #9573
+Merge "[BUGFIX] Fix static declaration recognizion"
+[BUGFIX] Fix copyright year in unit tests
+The unit tests matched the current year against the fixtures made in 2011.
+[BUGFIX] Fix static declaration recognizion
+Also adds a unit test for the regular expression.
+[BUGFIX] Fix methodRegex
+The methodRegex matched on all lines with 'function' in it,
+eventually with whitespace in front. Change this so it's only
+matching on lines actually starting with:
+- a possible visibility declaration
+- 'function'
+- method name
+- an opening (
+[TASK] Added object schema builder test
+[TASK] Make backend modules actions configurable
+Resolves #31646
+[BUGFIX] Remove empty lines in actions configuration
+[BUGFIX] controllerActionCombinations were not renamed in extLocalconf.phpt template
+[TASK] Create methods only when properties are new
+Property related methods should only be created the first time a property is added
+This enables to remove methods also
+Resolves #29283
+[+TASK] Enable plugin config import for installed extensions
+This should help, for installed extensions to get the configured Controller action configuration into the plugin's action form fields
+It will only be executed the first time, if you reedit extensions that were generated with an older version of the Extension Builder
+[!!!][BUGFIX] Rename controller action combinations
+In the extension builder the Controller Action combinations
+are named cacheableActions, which is incorrect. This list
+contains the complete list of possible controller / actions,
+and the nonCacheableActions is a subset of this list.
+This change breaks extensionBuilder.json files using the other
+naming!
+[TASK] Enable switchable controller actions
+Extended validations
+[TASK] Make actions configurable for each plugin
+Resolves #28899
+-
+-HOW TO CREATE THE CHANGELOG
+-===========================
+-
+-git log 478a1a6e387..HEAD --pretty=format:"%s%n%b%n" | grep -v "^$" | grep -v "Change-Id*"

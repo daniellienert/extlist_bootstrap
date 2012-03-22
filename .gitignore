@@ -1,0 +1,54 @@
+################################################################################
+# Ignore project files
+################################################################################
+cgi-bin/
+etc/
+fcgi-bin/
+log/
+sbin/
+sql/
+tmp/
+index.php
+t3lib
+typo3
+typo3_src
+uploads/tx_extensionbuilder/backups/
+
+################################################################################
+# Ignore IDE files
+################################################################################
+.buildpath
+.idea
+.cache
+.project
+.metadata
+.settings
+TAGS
+*~
+
+################################################################################
+# Ignore SCMs: CVS, .svn, .hg
+################################################################################
+CVS
+.cvsignore
+.svn
+.hg
+.hgignore
+
+################################################################################
+# Ignore cache, logs, dumps and ENABLE_INSTALL_TOOL
+################################################################################
+!htdocs/typo3temp/smarty_cache/index.html
+!htdocs/typo3temp/smarty_compile/index.html
+typo3conf/temp_CACHED*
+typo3conf/deprecation*
+typo3conf/ENABLE_INSTALL_TOOL
+uploads/tx_phpmyadmin/*.sql
+.tmp_*
+.sass-cache
+
+################################################################################
+# Ignore Extensions
+################################################################################
+
+typo3temp/
