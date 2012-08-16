@@ -1,6 +1,0 @@
-'type' => 'group',
-'internal_type' => 'file_reference',
-'uploadfolder' => '{extension.uploadFolder}',
-'allowed' => '{property.allowedFileTypes}',
-'disallowed' => '{property.disallowedFileTypes}',
-'size' => 5,
