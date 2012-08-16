@@ -1,0 +1,44 @@
+{namespace extlist=Tx_PtExtlist_ViewHelpers}
+<extlist:comment>
+<!--  
+Template for filterbox plugin
+
+Here is a list of objects / variables that can be accessed in this template
+
+Tx_PtExtlist_Domain_Configuration_ConfigurationBuilder				config						A instance of the configurationbuilder
+Tx_PtExtlist_Domain_Model_Filter_Filterbox                          filterbox                   Holds an instance for the filterbox object
+bool                                                                filtersDontValidate         True, if filters do not validate
+
+@package Typo3
+@subpackage pt_extlist
+@author Michael Knoll <knoll@punkt.de>
+@author Daniel Lienert <lienert@punkt.de>
+-->
+</extlist:comment>
+<div class="tx-ptextlist-filterbox" id="tx-ptextlist-filterbox-{filterbox.filterBoxIdentifier}">
+	<extlist:form class="well form-inline" id="tx-ptextlist-filterbox-form-{filterbox.filterBoxIdentifier}" controller="Filterbox" action="submit" pageUid="{filterbox.filterboxConfiguration.submitToPage}" method="{f:if(condition: '{config.baseConfig.useSession}', then: 'POST', else: 'GET')}">
+		
+		<f:if condition="{filtersDontValidate}">
+			<div class="error">
+				<f:translate key="filterBox.errorInFilter" default="Errors in Filter" />
+			</div>
+		</f:if>
+
+		<f:if condition="{filter.filterConfig.visible}">
+			<f:render partial="{filter.filterConfig.partialPath}" arguments="{filter : filter}" />
+		</f:if>
+
+		<div class="outer-wrapper tx-ptextlist-filterboxcontrols">
+			<f:if condition="{filterbox.filterboxConfiguration.showSubmit}">
+				<f:form.submit class="btn" value="{f:translate(key:'filterBox.submitFilters', default:'Submit Filters')}"/>
+			</f:if>
+			<f:if condition="{filterbox.filterboxConfiguration.showReset}">
+				<f:link.action action="reset" arguments="{filterboxIdentifier: filterbox.filterboxIdentifier}" class="reset">
+					<span>
+						<f:translate key="filterBox.resetFilters" default="Reset filters" />
+					</span>
+				</f:link.action>
+			</f:if>
+		</div>
+	</extlist:form>
+</div>

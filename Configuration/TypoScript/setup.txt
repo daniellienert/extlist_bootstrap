@@ -1,0 +1,21 @@
+plugin.tx_ptextlist._CSS_DEFAULT_STYLE >
+
+plugin.tx_ptextlist {
+
+	prototype.list {
+		headerPartial = EXT:extlist_bootstrap/Resources/Private/Partials/List/ListHeader.html
+		bodyPartial = EXT:extlist_bootstrap/Resources/Private/Partials/List/ListBody.html
+		aggregateRowsPartial = EXT:extlist_bootstrap/Resources/Private/Partials/List/AggregateRows.html
+
+		useSession = 1
+		useStateCache = 0
+
+		pagerIdentifier = default
+	}
+
+	settings.controller {
+		Pager.show.template = EXT:extlist_bootstrap/Resources/Private/Templates/Pager/Default.html
+		Filterbox.show.template = EXT:extlist_bootstrap/Resources/Private/Templates/Filterbox/Show.html
+		List.list.template = EXT:extlist_bootstrap/Resources/Private/Templates/List/List.html
+	}
+}
