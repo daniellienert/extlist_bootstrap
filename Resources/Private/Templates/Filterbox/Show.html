@@ -15,18 +15,21 @@ bool                                                                filtersDontV
 @author Daniel Lienert <lienert@punkt.de>
 -->
 </extlist:comment>
+
 <div class="tx-ptextlist-filterbox" id="tx-ptextlist-filterbox-{filterbox.filterBoxIdentifier}">
-	<extlist:form class="well form-inline" id="tx-ptextlist-filterbox-form-{filterbox.filterBoxIdentifier}" controller="Filterbox" action="submit" pageUid="{filterbox.filterboxConfiguration.submitToPage}" method="{f:if(condition: '{config.baseConfig.useSession}', then: 'POST', else: 'GET')}">
-		
+	<f:form class="well form-inline" id="tx-ptextlist-filterbox-form-{filterbox.filterBoxIdentifier}" controller="OrderAdmin" action="showList" pageUid="{filterbox.filterboxConfiguration.submitToPage}" method="{f:if(condition: '{config.baseConfig.useSession}', then: 'POST', else: 'GET')}">
+
 		<f:if condition="{filtersDontValidate}">
 			<div class="error">
 				<f:translate key="filterBox.errorInFilter" default="Errors in Filter" />
 			</div>
 		</f:if>
 
-		<f:if condition="{filter.filterConfig.visible}">
-			<f:render partial="{filter.filterConfig.partialPath}" arguments="{filter : filter}" />
-		</f:if>
+		<f:for each="{filterbox}" as="filter">
+			<f:if condition="{filter.filterConfig.visible}">
+				<f:render partial="{filter.filterConfig.partialPath}" arguments="{filter : filter}" />
+			</f:if>
+		</f:for>
 
 		<div class="outer-wrapper tx-ptextlist-filterboxcontrols">
 			<f:if condition="{filterbox.filterboxConfiguration.showSubmit}">
@@ -40,5 +43,5 @@ bool                                                                filtersDontV
 				</f:link.action>
 			</f:if>
 		</div>
-	</extlist:form>
+	</f:form>
 </div>
